@@ -1,0 +1,6 @@
+
+/* LWRF Devices */
+Switch lwrf1   "LWRF Socket 1"  {mqtt=">[mosquitto:lwrf:command:ON:1 1],>[mosquitto:lwrf:command:OFF:1 0]"}
+Switch lwrf2   "LWRF Socket 2"  {mqtt=">[mosquitto:lwrf:command:ON:2 1],>[mosquitto:lwrf:command:OFF:2 0]"}
+Switch lwrf3   "LWRF Socket 3"  {mqtt=">[mosquitto:lwrf:command:ON:3 1],>[mosquitto:lwrf:command:OFF:3 0]"}
+Switch lwrf4   "LWRF Socket 4"  {mqtt=">[mosquitto:lwrf:command:ON:4 1],>[mosquitto:lwrf:command:OFF:4 0]"}
