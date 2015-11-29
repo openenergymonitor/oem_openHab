@@ -1,12 +1,25 @@
 # OpenEnergyMonitor skeleton config for openHAB
 
+To install openHab on Raspberry Pi: 
+
 	$ wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=openhab' |sudo apt-key add -
 	$ echo "deb http://dl.bintray.com/openhab/apt-repo stable main" | sudo tee /etc/apt/sources.list.d/openhab.list
 	$ sudo apt-get update
 	$ sudo apt-get install openhab-runtime
 	$ sudo /etc/init.d/openhab start
 
-Install the oem config files:
+To run openHab at startup:
+
+	sudo update-rc.d openhab defaults
+	sudo nano /etc/rc.local
+	
+add
+
+	/etc/init.d/openhab start
+
+before 'exit 0'
+
+Install the OpenEnergyMonitor config files:
 
 	$ git clone this repo
 	$ cd oem_openHab
