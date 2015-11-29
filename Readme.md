@@ -8,15 +8,15 @@
 
 Install the oem config files:
 
-	git clone this repo
-	cd oem_openHab
-	sudo cp oem.items /etc/openhab/configurations/items
-	sudo cp oem.sitemap /etc/openhab/configurations/sitemaps
-	 sudo /etc/init.d/openhab restart
+	$ git clone this repo
+	$ cd oem_openHab
+	$ sudo cp oem.items /etc/openhab/configurations/items
+	$ sudo cp oem.sitemap /etc/openhab/configurations/sitemaps
+	$ sudo /etc/init.d/openhab restart
 
 Then browse to: 
 
-http://IP_ADDRESS:8080/openhab.app?sitemap=oem
+	http://IP_ADDRESS:8080/openhab.app?sitemap=oem
 
 You might need to open up the port:
 
@@ -40,6 +40,7 @@ Download openHAB addons (http://www.openhab.org/getting-started/downloads.html),
 
 In configurations/openhab.cfg in the MQTT section add:
 
+	sudo nano /etc/openhab/configurations/openhab.cfg
 	mqtt:mosquitto.url=tcp://locahost:1883
 	
 # Enable Authentication
