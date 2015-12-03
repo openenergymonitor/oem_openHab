@@ -1,9 +1,14 @@
+// OpenEnergyMonitor Skeleton Config
+// For use on emonPi running emonhub MQTT
+// Part of the openenergymonitor.org project
+
+// https://github.com/openhab/openhab/wiki/Explanation-of-Sitemaps
+
 sitemap oem label="OpenEnergyMonitor"
 {
 
-
-	Frame label="Power" {
-		Text item=p1 label="Power 1" icon="switch-on"
+	Frame label="emonPi" {
+		Text item=emonpi_ct1
 	}
 
 	Frame label="Temperature & Humidity" {
