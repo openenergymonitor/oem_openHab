@@ -33,8 +33,8 @@ Install the OpenEnergyMonitor config files:
 
 	$ git clone this repo
 	$ cd oem_openHab
-	$ sudo cp oem.items /etc/openhab/configurations/items
-	$ sudo cp oem.sitemap /etc/openhab/configurations/sitemaps
+	$ sudo ln -s /home/pi/oem_openHab/oem.items /etc/openhab/configurations/items/oem.items
+	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/oem.sitemap
 	$ sudo /etc/init.d/openhab restart
 
 Then browse to: 
