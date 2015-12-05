@@ -31,8 +31,7 @@ before 'exit 0'
 
 Install the OpenEnergyMonitor config files:
 
-	$ git clone this repo
-	$ cd oem_openHab
+	$ git https://github.com/openenergymonitor/oem_openHab
 	$ sudo ln -s /home/pi/oem_openHab/oem.items /etc/openhab/configurations/items/oem.items
 	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/oem.sitemap
 	$ sudo /etc/init.d/openhab restart
