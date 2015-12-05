@@ -1,21 +1,29 @@
 // OpenEnergyMonitor Skeleton Config
 // For use on emonPi running emonhub MQTT
-// Part of the openenergymonitor.org project
+// Part of the openenergymonitor.org project //
 
 // itemtype itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
 // Example: Number Temperature_GF_Living "Temperature [%.1f °C]" <temperature> (GF_Living) {knx="1/0/15+0/0/15"}
 // https://github.com/openhab/openhab/wiki/Explanation-of-items
+
+
+
+/* emonPi */
+Number  emonpi_ct1       "Power 1 [%d W]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX((.*),.*,.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
+Number  emonpi_ct2       "Power 2 [%d W]"       { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,(.*),.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
+// Number  emonpi_ct1plus2  "Power 1 +2 [%d W]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*,.*)]" }
+Number  emonpi_vrms      "Voltage [%d VRMS]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*)]" }
+Number  emonpi_t1        "Temperature 1 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*)]" }
+Number  emonpi_t2        "Temperature 2 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*)]" }
+
+/* emonTH */
+Number  emonth_t19       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/19/values:state:REGEX((.*),.*,.*,.*)]" }
+Number  emonth_h19       "Humidity [%d RH]"      { mqtt="<[mosquitto:emonhub/rx/19/values:state:REGEX(.*,.*,(.*),.*)]" }
+Number  emonth_t23       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/23/values:state:REGEX((.*),.*,.*,.*,.*)]" }
+Number  emonth_h23       "Humidity [%d RH]"      { mqtt="<[mosquitto:emonhub/rx/23/values:state:REGEX(.*,.*,(.*),.*,.*)]" }
 
 /* LWRF Devices */
 Switch lwrf1   "LWRF Socket 1"  {mqtt=">[mosquitto:lwrf:command:ON:1 1],>[mosquitto:lwrf:command:OFF:1 0]"}
 Switch lwrf2   "LWRF Socket 2"  {mqtt=">[mosquitto:lwrf:command:ON:2 1],>[mosquitto:lwrf:command:OFF:2 0]"}
 Switch lwrf3   "LWRF Socket 3"  {mqtt=">[mosquitto:lwrf:command:ON:3 1],>[mosquitto:lwrf:command:OFF:3 0]"}
 Switch lwrf4   "LWRF Socket 4"  {mqtt=">[mosquitto:lwrf:command:ON:4 1],>[mosquitto:lwrf:command:OFF:4 0]"}
-
-Number  emonpi_ct1 { mqtt="<[emonhub:emonhub/rx/5/values:state:REGEX((.*),.*,.*,.*,.*,.*)]" }
-//Number  emonpi_ct2       "Power 2 [%d W]"       { mqtt="<[emonhub:emonhub/rx/5/values:state:REGEX(.*,(.*),.*,.*,.*,.*)]" }
-//Number  emonpi_ct1plus2  "Power 1 +2" [%d W]"   { mqtt="<[emonhub:emonhub/rx/5/values:state:REGEX(.*,.*,(.*),.*,.*,.*)]" }
-//Number  emonpi_vrms      "Voltage [%d VRMS]"    { mqtt="<[emonhub:emonhub/rx/5/values:state:REGEX(.*,.*,.*,(.*),.*,.*)]" }
-//Number  emonpi_t1        "Temperature 1 [%d C]" { mqtt="<[emonhub:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,(.*),.*)]" }
-//Number  emonpi_t2        "Temperature 2 [%d C]" { mqtt="<[emonhub:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,.*,(.*))]" }
-
