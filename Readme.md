@@ -76,6 +76,20 @@ Change:
 Add "user=password" e.g:
 
 	pi = raspberry
+	
+# Read-only filesystem
+
+If you want to run openHAB on emonPi with read-only file system you will need to mount /var/lib/openhab as tempfs in RAM
+	
+	$ sudo sh -c "echo 'tmpfs           /var/lib/openhab   tmpfs   nodev,nosuid,size=20M,mode=1777        0    0' >> /etc/fstab"
+	
+Also the correct ports will ned to be opend and RAM tmpfs log file created on startup. At the following to /etc/rc.local 
+
+	
+	sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
+	sudo mkdir /var/log/openhab
+	sudo chmod 666 /var/log/openhab
+	/etc/init.d/openhab start
 
 
 
