@@ -1,10 +1,12 @@
 # OpenEnergyMonitor skeleton config for openHAB
 
-To install openHab on Raspberry Pi: 
+![OpenEnergyMonitor_openHAB](images/web.png)
+
+To install openHab on Raspberry Pi:
 
 Check Java version (JVM 1.6 or later is required):
 
-	$ java - version 
+	$ java - version
 	
 Install if needed:
 
@@ -36,7 +38,7 @@ Install the OpenEnergyMonitor config files:
 	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/oem.sitemap
 	$ sudo /etc/init.d/openhab restart
 
-Then browse to: 
+Then browse to:
 
 	http://IP_ADDRESS:8080/openhab.app?sitemap=oem
 
@@ -68,7 +70,7 @@ In configurations/openhab.cfg in the MQTT section add:
 # Enable Authentication
 
 	sudo nano /etc/openhab/configuration/openhab.cfg
-Change:  
+Change:
 	security:option=ON or EXTERNAL for external from WAN security only
 
 	sudo nano /etc/openhab/configuration/users.cfg
@@ -83,7 +85,7 @@ If you want to run openHAB on emonPi with read-only file system you will need to
 	
 	$ sudo sh -c "echo 'tmpfs           /var/lib/openhab   tmpfs   nodev,nosuid,size=20M,mode=1777        0    0' >> /etc/fstab"
 	
-Also the correct ports will ned to be opend and RAM tmpfs log file created on startup. At the following to /etc/rc.local 
+Also the correct ports will ned to be opend and RAM tmpfs log file created on startup. At the following to /etc/rc.local
 
 	
 	sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
