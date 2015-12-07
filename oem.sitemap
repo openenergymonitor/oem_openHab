@@ -16,7 +16,7 @@ sitemap oem label="OpenEnergyMonitor"
 	}
 
 	Frame label="emonTH (node 19)" {
-		Text item=emonth_t19 icon="temperature"
+	  Text item=emonth_t19 icon="temperature"
 		Text item=emonth_h19 icon="temperature"
 	}
 	

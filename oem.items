@@ -12,7 +12,7 @@
 Number  emonpi_ct1       "Power 1 [%d W]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX((.*),.*,.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
 Number  emonpi_ct2       "Power 2 [%d W]"       { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,(.*),.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
 // Number  emonpi_ct1plus2  "Power 1 +2 [%d W]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*,.*)]" }
-Number  emonpi_vrms      "Voltage [%d VRMS]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*)]" }
+Number  emonpi_vrms      "Voltage [%.1f VRMS]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*)]" }
 Number  emonpi_t1        "Temperature 1 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*)]" }
 Number  emonpi_t2        "Temperature 2 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*)]" }
 
