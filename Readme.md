@@ -31,9 +31,21 @@ add
 
 before 'exit 0'
 
+# Install MQTT & HTTP Bindings
+
+Download openHAB addons (http://www.openhab.org/getting-started/downloads.html), unzip and extract. You probably want to do this on your PC since download .zip is over 80Mb then copy te required add on's
+
+	sudo cp org.openhab.binding.mqtt-1.7.1.jar /etc/openhab/addons/
+	sudo apt-get install openhab-addon-binding-mqtt
+	
+	sudo cp org.openhab.binding.http-1.7.1.jar /etc/openhab/addons/
+	sudo apt-get install openhab-addon-binding-http
+
+
 Install the OpenEnergyMonitor config files:
 
 	$ git https://github.com/openenergymonitor/oem_openHab
+	$ sudo ln -s /home/pi/oem_openHab/openhab.cfg /etc/openhab/configurations/
 	$ sudo ln -s /home/pi/oem_openHab/oem.items /etc/openhab/configurations/items/oem.items
 	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/oem.sitemap
 	$ sudo /etc/init.d/openhab restart
@@ -51,21 +63,6 @@ To save port rules use (you might also need to add entry in /etc/rc.local to ope
 	sudo apt-get install iptables-persistent
 	sudo nano /etc/iptables/rules.v4
 
-
-# Install MQTT & HTTP Bindings
-
-Download openHAB addons (http://www.openhab.org/getting-started/downloads.html), unzip and extract. You probably want to do this on your PC since download .zip is over 80Mb then copy te required add on's
-
-	sudo cp org.openhab.binding.mqtt-1.7.1.jar /etc/openhab/addons/
-	sudo apt-get install openhab-addon-binding-mqtt
-	
-	sudo cp org.openhab.binding.http-1.7.1.jar /etc/openhab/addons/
-	sudo apt-get install openhab-addon-binding-http
-
-In configurations/openhab.cfg in the MQTT section add:
-
-	sudo nano /etc/openhab/configurations/openhab.cfg
-	mqtt:mosquitto.url=tcp://locahost:1883
 	
 # Enable Authentication
 
