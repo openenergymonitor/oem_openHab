@@ -2,7 +2,7 @@
 
 ![OpenEnergyMonitor_openHAB](images/web.png)
 
-To install openHab on Raspberry Pi:
+# To install openHab on emonPi / Raspberry Pi:
 
 Check Java version (JVM 1.6 or later is required):
 
@@ -13,7 +13,8 @@ Install if needed:
 	$ sudo apt-get install oracle-java7-jdk
 
 Install OpenHab:
-
+	
+	$ rpi-rw
 	$ wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=openhab' |sudo apt-key add -
 	$ echo "deb http://dl.bintray.com/openhab/apt-repo stable main" | sudo tee /etc/apt/sources.list.d/openhab.list
 	$ sudo apt-get update
