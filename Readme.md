@@ -42,7 +42,7 @@ Download openHAB addons (http://www.openhab.org/getting-started/downloads.html),
 	sudo apt-get install openhab-addon-binding-http
 
 
-Install the OpenEnergyMonitor config files:
+# Install the OpenEnergyMonitor config files:
 
 	$ git https://github.com/openenergymonitor/oem_openHab
 	$ sudo ln -s /home/pi/oem_openHab/openhab.cfg /etc/openhab/configurations/
@@ -83,7 +83,12 @@ If you want to run openHAB on emonPi with read-only file system you will need to
 	$ sudo sh -c "echo 'tmpfs           /var/lib/openhab   tmpfs   nodev,nosuid,size=20M,mode=1777        0    0' >> /etc/fstab"
 	
 Also the correct ports will ned to be opend and RAM tmpfs log file created on startup. At the following to /etc/rc.local
-
+	
+	sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
+	sudo mkdir /var/log/openhab
+	sudo chmod 666 /var/log/openhab
+	/etc/init.d/openhab start
+	
 # Debugging
 		
 To enable verbose debug mode cheange debug to 'yes' in: 
@@ -91,13 +96,6 @@ To enable verbose debug mode cheange debug to 'yes' in:
 	sudo nano /etc/default/openhab
 	
 Note: it's not recomended to leave debug turned on by default as its very verbose and will fill up your logs! 
-
-
-	
-	sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
-	sudo mkdir /var/log/openhab
-	sudo chmod 666 /var/log/openhab
-	/etc/init.d/openhab start
 
 
 
