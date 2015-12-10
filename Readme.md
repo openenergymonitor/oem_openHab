@@ -46,7 +46,7 @@ You might need to open up the port:
 
 	sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
 
-To save port rules use:
+To save port rules use (you might also need to add entry in /etc/rc.local to open up port each time:
 
 	sudo apt-get install iptables-persistent
 	sudo nano /etc/iptables/rules.v4
@@ -69,15 +69,15 @@ In configurations/openhab.cfg in the MQTT section add:
 	
 # Enable Authentication
 
-	sudo nano /etc/openhab/configuration/openhab.cfg
+	sudo nano /etc/openhab/configurations/openhab.cfg
 Change:
 	security:option=ON or EXTERNAL for external from WAN security only
 
-	sudo nano /etc/openhab/configuration/users.cfg
+	sudo nano /etc/openhab/configurations/users.cfg
 	
 Add "user=password" e.g:
 
-	pi = raspberry
+	pi = emonpi2015
 	
 # Read-only filesystem
 
@@ -86,6 +86,15 @@ If you want to run openHAB on emonPi with read-only file system you will need to
 	$ sudo sh -c "echo 'tmpfs           /var/lib/openhab   tmpfs   nodev,nosuid,size=20M,mode=1777        0    0' >> /etc/fstab"
 	
 Also the correct ports will ned to be opend and RAM tmpfs log file created on startup. At the following to /etc/rc.local
+
+# Debugging
+		
+To enable verbose debug mode cheange debug to 'yes' in: 
+
+	sudo nano /etc/default/openhab
+	
+Note: it's not recomended to leave debug turned on by default as its very verbose and will fill up your logs! 
+
 
 	
 	sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
