@@ -37,9 +37,8 @@ sitemap oem label="OpenEnergyMonitor"
 		}
 
 			Text label="ESP WiFi Relay" icon="fire-on"{
-				Switch item=esprelay1 label="Relay 1"
-				Switch item=esprelay2 label="Relay 2"
-				Switch item=esprelay3 label="Relay 3"
+				Switch item=relay1_http label="ESP8266 Relay 1 (HTTP)"
+				Switch item=relay1_mqtt label="ESP8266 Relay 1 (MQTT)"
 			}
 		}
 	}
