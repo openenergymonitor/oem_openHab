@@ -73,7 +73,7 @@ Change:
 
 	sudo nano /etc/openhab/configurations/users.cfg
 	
-Add "user=password" e.g:
+Add "user=password" to users.cfg
 
 	pi = emonpi2015
 	
