@@ -47,13 +47,13 @@ Download openHAB addons (http://www.openhab.org/getting-started/downloads.html),
 
 	$ git https://github.com/openenergymonitor/oem_openHab
 	$ sudo ln -s /home/pi/oem_openHab/openhab.cfg /etc/openhab/configurations/
-	$ sudo ln -s /home/pi/oem_openHab/oem.items /etc/openhab/configurations/items/oem.items
+	$ sudo ln -s /home/pi/oem_openHab/oem.items /etc/openhab/configurations/items/default.items
 	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/oem.sitemap
 	$ sudo /etc/init.d/openhab restart
 
 Then browse to:
 
-	http://IP_ADDRESS:8080/openhab.app?sitemap=oem
+	http://IP_ADDRESS:8080
 
 You might need to open up the port:
 
@@ -91,12 +91,26 @@ Also the correct ports will ned to be opend and RAM tmpfs log file created on st
 	/etc/init.d/openhab start
 	
 # Debugging
+
+View log:
+
+	$ tail /var/log/openhab/openhab.log
+	$ tail /var/log/openhab/event.log
 		
 To enable verbose debug mode cheange debug to 'yes' in: 
 
 	sudo nano /etc/default/openhab
 	
 Note: it's not recomended to leave debug turned on by default as its very verbose and will fill up your logs! 
+
+By default openHAB logs all events to  /var/log/openhab/event.log, this is very verbose and filles up /var/log quickly as events also appear in syslog and daemon log. To disable event log:
+
+	sudo nano /etc/openhab/logback.xml
+
+Change "runtime.busevents" loglevel from "INFO" to "WARN" 
+
+	<logger name="runtime.busevents" level="WARN" additivity="false">
+
 
 
 
