@@ -1,5 +1,7 @@
 # OpenEnergyMonitor skeleton config for openHAB
 
+Blog Post: http://openenergymonitor.blogspot.com/2015/12/openenergymonitor-emonpi-and-openhab.html
+
 ![OpenEnergyMonitor_openHAB](images/web.png)
 
 # To install openHab on emonPi / Raspberry Pi:
