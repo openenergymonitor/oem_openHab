@@ -23,6 +23,7 @@ Number  emonth_t23       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/
 Number  emonth_h23       "Humidity [%.1f RH]"      { mqtt="<[mosquitto:emonhub/rx/23/values:state:REGEX(.*,.*,(.*),.*,.*)]" }
 
 /* LWRF Devices */
+Switch lwrf_all "All LWRF"
 Switch lwrf0   "LWRF Socket 0"  {mqtt=">[mosquitto:lwrf:command:ON:0 1],>[mosquitto:lwrf:command:OFF:0 0]"}
 Switch lwrf1   "LWRF Socket 1"  {mqtt=">[mosquitto:lwrf:command:ON:1 1],>[mosquitto:lwrf:command:OFF:1 0]"}
 Switch lwrf2   "LWRF Socket 2"  {mqtt=">[mosquitto:lwrf:command:ON:2 1],>[mosquitto:lwrf:command:OFF:2 0]"}

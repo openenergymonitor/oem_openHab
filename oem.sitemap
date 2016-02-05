@@ -28,11 +28,12 @@ sitemap default label="OpenEnergyMonitor"
 	Frame label="Control" {
 		Text label="LWRF Plug Control" icon="socket"{
 			Frame label="Light Wave RF"{
-				Switch item=lwrf0 label="LWRF Plug 0"
-				Switch item=lwrf1 label="LWRF Plug 1"
-				Switch item=lwrf2 label="LWRF Plug 2"
-				Switch item=lwrf3 label="LWRF Plug 3"
-				Switch item=lwrf4 label="LWRF Plug 4"
+                Switch item=lwrf_all   label="All"           mappings=[OFF="All Off", ON="All On"]
+				Switch item=lwrf0      label="LWRF Plug 0"
+				Switch item=lwrf1      label="LWRF Plug 1"
+				Switch item=lwrf2      label="LWRF Plug 2"
+				Switch item=lwrf3      label="LWRF Plug 3"
+				Switch item=lwrf4      label="LWRF Plug 4"
 			}
 		}
 

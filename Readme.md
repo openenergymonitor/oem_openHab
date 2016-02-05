@@ -51,6 +51,7 @@ Download openHAB addons (http://www.openhab.org/getting-started/downloads.html),
 	$ sudo ln -s /home/pi/oem_openHab/openhab.cfg /etc/openhab/configurations/
 	$ sudo ln -s /home/pi/oem_openHab/oem.items /etc/openhab/configurations/items/default.items
 	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/oem.sitemap
+	$ sudo ln -s /home/pi/oem_openHab/oem.rules /etc/openhab/configurations/sitemaps/oem.rules
 	$ sudo /etc/init.d/openhab restart
 
 Then browse to:
@@ -99,17 +100,17 @@ View log:
 	$ tail /var/log/openhab/openhab.log
 	$ tail /var/log/openhab/event.log
 		
-To enable verbose debug mode cheange debug to 'yes' in: 
+To enable verbose debug mode cheange debug to 'yes' in:
 
 	sudo nano /etc/default/openhab
 	
-Note: it's not recomended to leave debug turned on by default as its very verbose and will fill up your logs! 
+Note: it's not recomended to leave debug turned on by default as its very verbose and will fill up your logs!
 
 By default openHAB logs all events to  /var/log/openhab/event.log, this is very verbose and filles up /var/log quickly as events also appear in syslog and daemon log. To disable event log:
 
 	sudo nano /etc/openhab/logback.xml
 
-Change "runtime.busevents" loglevel from "INFO" to "WARN" 
+Change "runtime.busevents" loglevel from "INFO" to "WARN"
 
 	<logger name="runtime.busevents" level="WARN" additivity="false">
 

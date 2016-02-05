@@ -1,0 +1,12 @@
+//rules
+
+rule "Switch all LWRF sockets"
+when
+    Item lwrf_all received command
+then
+    lwrf0.sendCommand(receivedCommand)
+    lwrf1.sendCommand(receivedCommand)
+    lwrf2.sendCommand(receivedCommand)
+    lwrf3.sendCommand(receivedCommand)
+    lwrf4.sendCommand(receivedCommand)
+end
