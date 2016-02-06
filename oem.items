@@ -7,20 +7,37 @@
 // https://github.com/openhab/openhab/wiki/Explanation-of-items
 
 
-
+// IF USING OLD EMONHUB node only CSV MQTT structure with multi CSV per topic basetopic/rx/10/values
+// See https://github.com/openenergymonitor/emonhub/blob/emon-pi/configuration.md
 /* emonPi */
-Number  emonpi_ct1       "Power 1 [%d W]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX((.*),.*,.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
-Number  emonpi_ct2       "Power 2 [%d W]"       { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,(.*),.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
+//Number  emonpi_ct1       "Power 1 [%d W]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX((.*),.*,.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
+//Number  emonpi_ct2       "Power 2 [%d W]"       { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,(.*),.*,.*,.*,.*,.*,.*,.*,.*,.*)]" }
 // Number  emonpi_ct1plus2  "Power 1 +2 [%d W]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*,.*)]" }
-Number  emonpi_vrms      "Voltage [%.1f VRMS]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*)]" }
-Number  emonpi_t1        "Temperature 1 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*)]" }
-Number  emonpi_t2        "Temperature 2 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*)]" }
+//Number  emonpi_vrms      "Voltage [%.1f VRMS]"    { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*,.*)]" }
+//Number  emonpi_t1        "Temperature 1 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*,.*)]" }
+//Number  emonpi_t2        "Temperature 2 [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/5/values:state:REGEX(.*,.*,.*,.*,.*,(.*),.*,.*,.*,.*,.*)]" }
 
 /* emonTH */
-Number  emonth_t19       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/19/values:state:REGEX((.*),.*,.*,.*)]" }
-Number  emonth_h19       "Humidity [%.1f RH]"      { mqtt="<[mosquitto:emonhub/rx/19/values:state:REGEX(.*,.*,(.*),.*)]" }
-Number  emonth_t23       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/23/values:state:REGEX((.*),.*,.*,.*,.*)]" }
-Number  emonth_h23       "Humidity [%.1f RH]"      { mqtt="<[mosquitto:emonhub/rx/23/values:state:REGEX(.*,.*,(.*),.*,.*)]" }
+//Number  emonth_t19       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/19/values:state:REGEX((.*),.*,.*,.*)]" }
+//Number  emonth_h19       "Humidity [%.1f RH]"      { mqtt="<[mosquitto:emonhub/rx/19/values:state:REGEX(.*,.*,(.*),.*)]" }
+//Number  emonth_t23       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emonhub/rx/23/values:state:REGEX((.*),.*,.*,.*,.*)]" }
+//Number  emonth_h23       "Humidity [%.1f RH]"      { mqtt="<[mosquitto:emonhub/rx/23/values:state:REGEX(.*,.*,(.*),.*,.*)]" }
+
+// IF USING NEW EMONHUB node variable topic structure with singe value per topic 
+// See https://github.com/openenergymonitor/emonhub/blob/emon-pi/configuration.md
+// https://github.com/openenergymonitor/emonhub/blob/emon-pi/conf/emonpi.default.emonhub.conf
+/* emonPi */
+Number  emonpi_ct1      "Power 1 [%d W]"    { mqtt="<[mosquitto:emon/emonpi/power1:state:default]" }
+Number  emonpi_ct2      "Power 2 [%d W]"    { mqtt="<[mosquitto:emon/emonpi/power2:state:default]" }
+Number  emonpi_vrms     "Voltage [%.1f VRMS]"    { mqtt="<[mosquitto:emon/emonpi/vrms:state:default]" }
+Number  emonpi_t1       "Temperature 1 [%.1f°C]"    { mqtt="<[mosquitto:emon/emonpi/t1:state:default]" }
+Number  emonpi_t2       "Temperature 2 [%.1f°C]"    { mqtt="<[mosquitto:emon/emonpi/t2:state:default]" }
+
+/* emonTH */
+Number  emonth_t19       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emon/emonth1/temperature:state:default]" }
+Number  emonth_h19       "Humidity [%.1f RH]"   { mqtt="<[mosquitto:emon/emonth1/humidity:state:default]" }
+Number  emonth_t23       "Temperature [%.1f°C]" { mqtt="<[mosquitto:emon/emonth5/temperature:state:default]" }
+Number  emonth_h23       "Humidity [%.1f RH]"   { mqtt="<[mosquitto:emon/emonth5/humidity:state:default]" }
 
 /* LWRF Devices */
 Switch lwrf_all "All LWRF"
