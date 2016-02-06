@@ -46,8 +46,7 @@ before 'exit 0'
 	$ git clone https://github.com/openenergymonitor/oem_openHab
 	$ sudo ln -s /home/pi/oem_openHab/openhab.cfg /etc/openhab/configurations/
 	$ sudo ln -s /home/pi/oem_openHab/oem.items /etc/openhab/configurations/items/default.items
-	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/oem.sitemap
-	$ sudo ln -s /home/pi/oem_openHab/oem.rules /etc/openhab/configurations/sitemaps/oem.rules
+	$ sudo ln -s /home/pi/oem_openHab/oem.sitemap /etc/openhab/configurations/sitemaps/default.sitemap
 	$ sudo /etc/init.d/openhab restart
 
 Then browse to:
@@ -69,7 +68,7 @@ Change:
 	
 Add "user=password" to users.cfg
 
-	pi = emonpi2015
+	pi = emonpi2016
 	
 # Read-only filesystem
 
