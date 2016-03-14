@@ -49,4 +49,4 @@ Switch lwrf4   "LWRF Socket 4"  {mqtt=">[mosquitto:lwrf:command:ON:4 1],>[mosqui
 
 /* ESP8266 Wifi Relay */
 Switch relay1_http "ESP8266 Relay 1 (HTTP)"  {http=">[ON:GET:http://RELAYADDRESS/control/relay.cgi?relay1=1&relay2=0&relay3=0] >[OFF:GET:RELAYADDRESS/control/relay.cgi?relay1=0&relay2=0&relay3=0]"}
-Switch relay1_mqtt "ESP8266 Relay 1 (MQTT)"  {mqtt=">[mosquitto:esp8266/out/relay/1:command:ON:1],>[mosquitto:esp8266/out/relay/1:command:OFF:0]"}
+Switch relay1_mqtt "ESP8266 Relay 1 (MQTT)"  {mqtt=">[mosquitto:heating/control/relay/1:command:ON:1],>[mosquitto:heating/control/relay/1:command:OFF:0]"}
