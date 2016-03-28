@@ -103,6 +103,32 @@ By default openHAB logs all events to  /var/log/openhab/event.log, this is very 
 Change "runtime.busevents" loglevel from "INFO" to "WARN"
 
 	<logger name="runtime.busevents" level="WARN" additivity="false">
+	
+# Remote Access
+
+There are two options to access openHAB remotly: 
+
+## 1. Direct Access
+To access openHAB remotly you will need to open port 8080 on your router. If you have a dynamic IP you will need to setup a Dynamic DNS service such as [DuckDNS](https://www.duckdns.org/install.jsp) or [NoIP](http://www.noip.com/support/knowledgebase/install-ip-duc-onto-raspberry-pi/).
+
+## 2. OpenHab cloud
+
+OpenHab have made remote access easier by provding a cloud service: [my.openHAB.org](https://my.openhab.org/). For fully setup inf see [my.openhab docs](https://my.openhab.org/docs). Steps required for emonPi are listed below: 
+
+	sudo apt-get install openhab-addon-io-myopenhab
+	sudo service openhab restart
+	
+Create account on [my.openHAB.org](https://my.openhab.org/) using `UUID` and `secret` from:
+
+	cat /usr/share/openhab/webapps/static/uuid
+	cat /usr/share/openhab/webapps/static/secret
+
+Browse to:
+
+https://my.openhab.org/openhab.app
+
+
+
 
 
 
