@@ -62,7 +62,17 @@ You might need to open up the port:
 
 	sudo nano /etc/openhab/configurations/openhab.cfg
 Change:
-	security:option=ON or EXTERNAL for external from WAN security only
+	security:option=ON 
+	
+or to only enable authentication required for external connections 
+	
+	security:option=EXTERNAL 
+
+You might also need to set netmask to inidcate requests from your local network, this setting defaults to `192.168.1.0/24`, however my home network uses 192.168.0.XX addresses, therfore I needed to set: 
+
+	security:netmask=192.168.0.0/24
+	
+Add authentication details:
 
 	sudo nano /etc/openhab/configurations/users.cfg
 	
