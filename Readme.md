@@ -114,6 +114,8 @@ Change "runtime.busevents" loglevel from "INFO" to "WARN"
 
 	<logger name="runtime.busevents" level="WARN" additivity="false">
 	
+The number of log archives that openHAB keeps can also be reduced by editing `/etc/openhab/logback.xml` and `/etc/openhab/logback_debug.xml` On emonPi opneHAB has been set to keep only a single log archive as oposed the the default 30!
+	
 # Remote Access
 
 There are two options to access openHAB remotly: 
