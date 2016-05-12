@@ -130,7 +130,13 @@ OpenHab have made remote access easier by provding a cloud service: [my.openHAB.
 	sudo apt-get install openhab-addon-io-myopenhab
 	sudo service openhab restart
 	
-Create account on [my.openHAB.org](https://my.openhab.org/) using `UUID` and `secret` from:
+Generate new UUID that will be unique to your OpenHAB installation
+
+	sudo service openhab stop
+	sudo rm -rf /usr/share/openhab/webapps/static/uuid 
+	sudo service openhab start
+	
+Create account on [my.openHAB.org](https://my.openhab.org/) using newly generated `UUID` and `secret` from:
 
 	cat /usr/share/openhab/webapps/static/uuid
 	cat /usr/share/openhab/webapps/static/secret
