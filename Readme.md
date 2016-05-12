@@ -1,6 +1,8 @@
 # OpenEnergyMonitor skeleton config for openHAB
 
-Blog Post: http://openenergymonitor.blogspot.com/2015/12/openenergymonitor-emonpi-and-openhab.html
+## [Read The Blog Post](ttps://blog.openenergymonitor.org/2015/12/openenergymonitor-emonpi-and-openhab/)
+
+***
 
 ![OpenEnergyMonitor_openHAB](images/web.png)
 
