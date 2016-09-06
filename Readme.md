@@ -10,7 +10,7 @@
 
 Check Java version (JVM 1.6 or later is required):
 
-	$ java - version
+	$ java -version
 	
 Install if needed:
 
