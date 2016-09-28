@@ -8,15 +8,31 @@
 
 # To install openHab on emonPi / Raspberry Pi:
 
-Check Java version (JVM 1.6 or later is required):
+## Install Java
+
+Check Java version (JVM 1.6 is required but 8 is recommended, see update below):
 
 	$ java -version
 	
 Install if needed:
 
 	$ sudo apt-get install oracle-java7-jdk
+	
+**Update Sep 16:**
 
-Install OpenHab:
+**Java 8** is now needed to connect to My.OpenHAB, see [forum thread](https://community.openenergymonitor.org/t/openhab-problems-connecting-through-myopenhab-with-java-8/1232). Instructions to upgrade to java 8 and obtain automatic java updates in the future are as follows, see [openHAB forum thread](https://community.openhab.org/t/my-openhab-org-is-online-ios-app-doesnt-show-sitemap-solution-java-update/12858/13):
+
+```
+sudo su
+echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+apt-get update
+apt-get install oracle-java8-installer
+exit
+```
+
+## Install OpenHab
 	
 	$ rpi-rw
 	$ wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=openhab' |sudo apt-key add -
