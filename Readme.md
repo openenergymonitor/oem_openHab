@@ -133,6 +133,39 @@ Change "runtime.busevents" loglevel from "INFO" to "WARN"
 	<logger name="runtime.busevents" level="WARN" additivity="false">
 	
 The number of log archives that openHAB keeps can also be reduced by editing `/etc/openhab/logback.xml` and `/etc/openhab/logback_debug.xml` On emonPi opneHAB has been set to keep only a single log archive as oposed the the default 30!
+
+# Disable Request log 
+
+OpenHAB uses a Jetty server which generates it's own request logs in `var/log/openhab` which annoyingly are date stamped filenames so they get missed by log rotate. Disable request log by editing 
+
+`sudo nano /etc/openhab/jetty/etc/jetty.xml`
+
+
+and commenting out the request log handler e.g.
+
+```
+<!--<Item>
+             <New id="RequestLog" class="org.eclipse.jetty.server.handler.RequestLogHandler"/>
+           </Item>-->
+```
+
+and in the same file comment out the request log config
+
+```
+   <!-- <Ref id="RequestLog">
+      <Set name="requestLog">
+        <New id="RequestLogImpl" class="org.eclipse.jetty.server.NCSARequestLog">
+          <Set name="filename"><SystemProperty name="jetty.logs" default="./logs"/>/yyyy_mm_dd.request.log</Set>
+          <Set name="filenameDateFormat">yyyy_MM_dd</Set>
+          <Set name="retainDays">90</Set>
+          <Set name="append">true</Set>
+          <Set name="extended">false</Set>
+          <Set name="logCookies">false</Set>
+          <Set name="LogTimeZone">GMT</Set>
+        </New>
+      </Set>
+    </Ref> -->
+```
 	
 # Remote Access
 
