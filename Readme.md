@@ -16,7 +16,7 @@ Check Java version (JVM 1.6 is required but 8 is recommended, see update below):
 	
 Install if needed:
 
-	$ sudo apt-get install oracle-java7-jdk
+~~	$ sudo apt-get install oracle-java7-jdk
 	
 **Update Sep 16:**
 
