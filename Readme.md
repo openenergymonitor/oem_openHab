@@ -216,8 +216,8 @@ E.g. make the toggle on/off switch of the MQTT WiFi relay reflect the ACTUAL sta
 Add:
 
 ```
-0=off
-1=on
+0=OFF
+1=ON
 ```
 
 
