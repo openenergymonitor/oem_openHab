@@ -196,6 +196,31 @@ Browse to:
 
 https://my.openhab.org/openhab.app
 
+***
+
+
+## Make toggle switch state reflect the actual status
+
+E.g. make the toggle on/off switch of the MQTT WiFi relay reflect the ACTUAL state of the relay by reading the state MQTT topic
+
+
+**Items entry**
+
+`Switch relay1_mqtt "ESP8266 Relay 1 (MQTT)" {mqtt=">[mosquitto:heating/control/relay/1:command:ON:1],>[mosquitto:heating/control/relay/1:command:OFF:0],<[mosquitto:heating/status/relay/1:state:MAP(onoff.map)]", autoupdate="false"}`
+
+
+**Add transformation file**
+
+`sudo nano  /etc/openhab/configurations/transform/onoff.map`
+
+Add:
+
+```
+0=off
+1=on
+```
+
+
 
 
 
