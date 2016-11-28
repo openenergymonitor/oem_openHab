@@ -31,8 +31,9 @@ apt-get update
 apt-get install oracle-java8-installer
 exit
 ```
+**Note the install guide on this page is for OpenHAB1, to install openHAB2 follow [this forum thread](https://community.openenergymonitor.org/t/install-openhab2-on-emonsd-emonpi/1741/12?u=glyn.hudson)***
 
-## Install OpenHab
+## Install OpenHab 1 
 	
 	$ rpi-rw
 	$ wget -qO - 'https://bintray.com/user/downloadSubjectPublicKey?username=openhab' |sudo apt-key add -
